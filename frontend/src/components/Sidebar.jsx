@@ -22,7 +22,7 @@ const navItems = [
   { path: '/export', label: 'Export Report', icon: Download }
 ]
 
-export function Sidebar({ cases, activeCase, setActiveCase, startScan }) {
+export function Sidebar({ cases = [], activeCase, setActiveCase, startScan }) {
   const location = useLocation()
 
   return (
@@ -54,7 +54,7 @@ export function Sidebar({ cases, activeCase, setActiveCase, startScan }) {
       </nav>
 
       {/* Active Case */}
-      {cases.length > 0 && (
+{cases?.length > 0 && (
         <div className="p-4 border-t border-border space-y-3">
           <div className="text-xs uppercase tracking-wider text-muted font-medium">Active Case</div>
           
@@ -67,7 +67,7 @@ export function Sidebar({ cases, activeCase, setActiveCase, startScan }) {
             }}
             className="w-full bg-surface-2 border border-border rounded-lg p-3 text-sm focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none"
           >
-            {cases.map(caseItem => (
+{cases?.map(caseItem => (
               <option key={caseItem.id} value={caseItem.id}>
                 {caseItem.name} ({caseItem.status})
               </option>
