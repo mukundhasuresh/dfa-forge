@@ -2,8 +2,10 @@ import os
 import json
 from datetime import datetime
 from typing import Dict, Any
-from database import db
-from ai_narrative import ai_narrative
+from database import Database
+from ai_narrative import generate_narrative
+
+db = Database()
 
 def generate_html_report(case_id: int, output_path: str = None) -> str:
     """Generate self-contained HTML forensic report"""
@@ -14,7 +16,7 @@ def generate_html_report(case_id: int, output_path: str = None) -> str:
     artifacts = db.get_artifacts(case_id)
     ttps = db.get_ttps(case_id)
     timeline = db.get_timeline(case_id)
-    narrative = ai_narrative.generate_narrative(case_id)
+    narrative = generate_narrative(case_id)
     
     # Case info
     case_info = {
