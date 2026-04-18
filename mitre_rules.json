@@ -1,0 +1,77 @@
+{
+  "rules": [
+    {
+      "pattern": "regex:^([0-9]{1,3}\\.){3}[0-9]{1,3}$",
+      "artifact_type": "ip",
+      "ttp_id": "T1071",
+      "ttp_name": "Application Layer Protocol",
+      "tactic": "Command and Control",
+      "confidence": "medium",
+      "description": "Outbound connection to IP address"
+    },
+    {
+      "pattern": "regex:^\\\\\\[.*?\\\\\\]$",
+      "artifact_type": "file",
+      "ttp_id": "T1059",
+      "ttp_name": "Command and Scripting Interpreter",
+      "tactic": "Execution",
+      "confidence": "high",
+      "description": "Suspicious executable in temp directory"
+    },
+    {
+      "pattern": "regex:^.*run.*key$",
+      "artifact_type": "file",
+      "ttp_id": "T1547",
+      "ttp_name": "Boot or Logon Autostart Execution: Registry Run Keys",
+      "tactic": "Persistence",
+      "confidence": "high",
+      "description": "Registry run key modification"
+    },
+    {
+      "pattern": "regex:^smss\\.exe$",
+      "artifact_type": "file",
+      "ttp_id": "T1055",
+      "ttp_name": "Process Injection",
+      "tactic": "Defense Evasion",
+      "confidence": "high",
+      "description": "Suspicious process creation"
+    },
+    {
+      "pattern": "regex:^.*\\.scr$",
+      "artifact_type": "file",
+      "ttp_id": "T1204",
+      "ttp_name": "User Execution",
+      "tactic": "Execution",
+      "confidence": "medium",
+      "description": "Screensaver execution"
+    },
+    {
+      "pattern": "regex:^.*powershell.*-.*",
+      "artifact_type": "file",
+      "ttp_id": "T1059.001",
+      "ttp_name": "Command and Scripting Interpreter: PowerShell",
+      "tactic": "Execution",
+      "confidence": "high",
+      "description": "PowerShell with encoded/obfuscated parameters"
+    },
+    {
+      "pattern": "regex:^.*cmd\\.exe.*\\/c.*",
+      "artifact_type": "file",
+      "ttp_id": "T1059.003",
+      "ttp_name": "Command and Scripting Interpreter: Windows Command Shell",
+      "tactic": "Execution",
+      "confidence": "medium",
+      "description": "Command shell execution"
+    },
+    {
+      "pattern": "contains:regedit",
+      "artifact_type": "file",
+      "ttp_id": "T1112",
+      "ttp_name": "Modify Registry",
+      "tactic": "Defense Evasion",
+      "confidence": "medium",
+      "description": "Registry modification"
+    }
+  ]
+}
+
