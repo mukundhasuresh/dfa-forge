@@ -1,3 +1,4 @@
+import React from 'react'
 import { Shield, Folder, Clock, Activity } from 'lucide-react'
 
 const ICON_MAP = {
