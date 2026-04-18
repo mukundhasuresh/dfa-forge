@@ -1,5 +1,5 @@
 import React from 'react'
-import { Shield, Folder, Clock, Activity } from 'lucide-react'
+import { Shield, Folder, Clock, Activity, Zap } from 'lucide-react'
 
 const ICON_MAP = {
   artifacts: Folder,
@@ -10,30 +10,42 @@ const ICON_MAP = {
 }
 
 const COLOR_MAP = {
-  artifacts: 'accent',
-  critical: 'danger',
-  ttps: 'purple',
-  timeline: 'warning',
-  progress: 'blue'
+  artifacts: '#00d4aa',
+  critical: '#ef4444',
+  ttps: '#8b5cf6',
+  timeline: '#f59e0b',
+  progress: '#0099ff'
 }
 
-export function MetricCard({ type, value, label, className = '' }) {
+export function MetricCard({ type, value, label }) {
   const Icon = ICON_MAP[type] || Activity
-  const color = COLOR_MAP[type] || 'accent'
+  const color = COLOR_MAP[type] || '#00d4aa'
   
   return (
-    <div className={`metric-card bg-surface-2 border border-border p-6 rounded-xl hover:border-${color} hover:shadow-lg transition-all group ${className}`}>
-      <div className="flex items-center justify-between mb-3">
-        <div className={`w-12 h-12 bg-${color}/10 rounded-xl flex items-center justify-center group-hover:bg-${color}/20 transition-all`}>
-          <Icon className={`w-6 h-6 text-${color}`} />
-        </div>
-      </div>
-      
-      <div className={`text-3xl font-bold font-syne bg-gradient-to-r from-${color} to-text bg-clip-text text-transparent mb-1`}>
-        {value}
-      </div>
-      <div className="text-muted text-sm font-medium uppercase tracking-wider">
+    <div style={{
+      background:'#111318', 
+      border:'1px solid #1e2330', 
+      borderRadius:'8px', 
+      padding:'16px',
+      minHeight:'100px',
+      display:'flex', 
+      flexDirection:'column', 
+      justifyContent:'space-between'
+    }}>
+      <div style={{fontSize:'10px', color:'#5a6480', textTransform:'uppercase', letterSpacing:'0.06em', marginBottom:'6px'}}>
         {label}
+      </div>
+      <div style={{
+        fontSize:'24px', 
+        fontWeight:700, 
+        fontFamily:'Syne,sans-serif', 
+        color: color,
+        marginBottom:'4px'
+      }}>
+        {value ?? 0}
+      </div>
+      <div style={{fontSize:'11px', color:'#5a6480', marginTop:'4px'}}>
+        {type === 'progress' ? 'Complete' : 'Found'}
       </div>
     </div>
   )
