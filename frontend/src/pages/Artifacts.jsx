@@ -72,12 +72,7 @@ export function Artifacts({ activeCase, setActiveCase, cases, setCases }) {
 
   return (
     <div className="flex h-screen bg-background overflow-hidden">
-      <Sidebar 
-        cases={cases}
-        activeCase={activeCase}
-        setActiveCase={setActiveCase}
-        startScan={startScan}
-      />
+
 
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Topbar */}

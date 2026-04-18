@@ -21,9 +21,19 @@ export function Overview({ activeCase, setActiveCase, cases, setCases }) {
   }, [activeCase])
 
   const fetchStats = async () => {
-    if (!activeCase?.id) {
-      setStats({ artifacts: 0, critical: 0, ttps: 0, timeline: 0, progress: 0 })
-      return
+  if (!activeCase?.id) {
+      return <div className="flex flex-col items-center justify-center h-full p-12 text-center">
+        <div className="w-24 h-24 bg-surface-2 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl">
+          <Folder className="w-12 h-12 text-muted" />
+        </div>
+        <h2 className="text-3xl font-bold font-syne mb-4 bg-gradient-to-r from-muted to-text bg-clip-text text-transparent">
+          Create a case to get started
+        </h2>
+        <p className="text-lg text-muted max-w-md mx-auto mb-8">
+          Upload a disk image to begin automated digital forensics analysis. 
+          Sleuthkit, bulk_extractor, VirusTotal, and AI-powered reporting ready.
+        </p>
+      </div>
     }
 
     try {
@@ -69,12 +79,7 @@ export function Overview({ activeCase, setActiveCase, cases, setCases }) {
   return (
     <div className="flex h-screen bg-background overflow-hidden">
       {/* Sidebar */}
-      <Sidebar 
-        cases={cases}
-        activeCase={activeCase}
-        setActiveCase={setActiveCase}
-        startScan={startScan}
-      />
+
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">

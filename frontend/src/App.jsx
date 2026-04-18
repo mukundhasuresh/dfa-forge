@@ -67,7 +67,7 @@ function App() {
 
   return (
     <Router>
-      <div className="min-h-screen bg-background text-text flex flex-col">
+<div style={{background:'#0a0c10', minHeight:'100vh', color:'#e8ecf4'}} className="flex flex-col">
         {/* Topbar */}
         <div className="h-12 bg-surface border-b border-border flex items-center px-6 gap-4">
           <div className="font-syne text-xl font-bold bg-gradient-to-r from-accent to-blue bg-clip-text text-transparent">
@@ -99,7 +99,7 @@ function App() {
           </div>
         </div>
 
-        <div className="flex flex-1 overflow-hidden">
+        <div style={{display:'flex', height:'calc(100vh - 48px)', overflow:'hidden'}}>
           {/* Sidebar */}
           <Sidebar 
             cases={cases} 
@@ -109,9 +109,9 @@ function App() {
           />
 
           {/* Main content */}
-          <main className="flex-1 overflow-y-auto p-8">
+          <main style={{flex:1, overflowY:'auto', padding:'24px', background:'#0a0c10'}}>
             <Routes>
-              <Route path="/" element={<Overview activeCase={activeCase} />} />
+<Route path="/" element={<Overview activeCase={activeCase} setActiveCase={setActiveCase} cases={cases} setCases={setCases} />} />
               <Route path="/artifacts" element={<Artifacts activeCase={activeCase} />} />
               <Route path="/timeline" element={<TimelinePage activeCase={activeCase} />} />
               <Route path="/report" element={<ReportPage activeCase={activeCase} />} />
