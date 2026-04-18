@@ -1,14 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@400;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    font-family: 'IBM Plex Mono', monospace;
-  }
-  
-  body {
-    @apply bg-background text-text;
-  }
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0a0c10; color: #e8ecf4; font-family: 'IBM Plex Mono', monospace; }
 
