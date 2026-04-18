@@ -3,7 +3,7 @@ import re
 import os
 from pathlib import Path
 from typing import List, Dict
-from backend.database import db
+from database import db
 
 MITRE_RULES_PATH = "mitre_rules.json"
 

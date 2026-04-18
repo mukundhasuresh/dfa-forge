@@ -4,7 +4,7 @@ import re
 import json
 from pathlib import Path
 from typing import List, Dict
-from backend.database import db, Case
+from database import db, Case
 
 def run_sleuthkit_command(image_path: str, case_id: int, command: List[str]):
     """Run sleuthkit command and parse output"""

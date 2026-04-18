@@ -2,7 +2,7 @@ import requests
 import os
 from dotenv import load_dotenv
 from typing import Dict, Optional, List
-from backend.database import db
+from database import db
 
 load_dotenv()
 
